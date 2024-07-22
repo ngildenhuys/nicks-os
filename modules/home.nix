@@ -6,6 +6,7 @@
     ./alacritty.nix
     ./fish.nix
     ./git.nix
+    ./direnv.nix
   ];
 
   home = {
@@ -39,6 +40,7 @@
       verilator
       critcmp
       yq-go
+      fastfetch
       (python311.withPackages (ppkgs: (with ppkgs; [
         python-lsp-server
         python-lsp-ruff
