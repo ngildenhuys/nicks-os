@@ -9,6 +9,7 @@ hostname := `hostname | cut -d "." -f 1`
 build target_host=hostname flags="":
   @echo "TODO : need to figure out build command"
   # nix --extra-experimental-features 'nix-command flakes'  build ".#darwinConfigurations.{{target_host}}" {{flags}}
+  nix run nix-darwin -- build --flake .
 
 # Build the nix-darwin config with the --show-trace flag set
 [macos]

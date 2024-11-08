@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports = [
@@ -7,6 +7,8 @@
     ./fish.nix
     ./git.nix
     ./direnv.nix
+    ./zellij.nix
+    # ./firefox.nix
   ];
 
   home = {
@@ -17,6 +19,7 @@
     # environment.
     # sessionVariables.EDITOR = "nvim"
     packages = with pkgs; [
+      meson
       ripgrep
       fd
       sd
@@ -28,24 +31,45 @@
       just
       alacritty
       coreutils
-      cargo
+      rustup
+      cargo-modules
+      # rustc
       eza
       poetry
       zellij
       pre-commit
       asciidoctor
       bazel
+      libiconv
+      iconv
+      # libiconvReal
       # clang
       gnuplot
       verilator
       critcmp
       yq-go
+      jq
       fastfetch
+      nvd
+      convco
+      protobuf
+      temporal-cli
+      glow
+      drawio
+      antora
+      mosh
+      lazygit
+      git-absorb
+      cargo-udeps
+      cargo-machete
       (python311.withPackages (ppkgs: (with ppkgs; [
         python-lsp-server
         python-lsp-ruff
         pytest
         pre-commit
+        GitPython
+        # work related imports
+        jinja2
       ])))
     ];
   };

@@ -1,6 +1,7 @@
 {config, pkgs, ...}:  {
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
+  nixpkgs.config.allowUnfree = true;
   environment = {
     shells = with pkgs; [
       fish
@@ -11,10 +12,15 @@
       fish
       coreutils
       darwin.libiconv
+      arc-browser
+      # libiconvReal
     ];
+    # enableDarwinABICompat = false;
+    systemPath = [ "/opt/rivos/riscv-gnu-toolchain/bin"  "$HOME/work/dv-release/spike/bin"];
     pathsToLink = [ "/Applications" ];
     loginShell = pkgs.fish;
   };
+  # buildInputs = with pkgs; [ rustfmt clippy ] ++ lib.optional stdenv.isDarwin libiconv;
 
 
   # Auto upgrade nix package and the daemon service.
@@ -52,6 +58,6 @@
   #   masApps = {};
   #   casks = [];
   #   taps = [];
-  #   brews = [];
+  #   brews = ["libiconv"];
   # };
 }
