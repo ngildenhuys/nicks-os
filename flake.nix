@@ -22,33 +22,59 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nurpkgs.url = "github:nix-community/NUR";
+    nixvim.url = "github:nix-community/nixvim";
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = inputs@{ nixpkgs, nix-darwin, home-manager, lix-module, ... }: {
-    # would put the nixos configuiration here for NixOs System
+  outputs = inputs @ {
+    nixpkgs,
+    nix-darwin,
+    home-manager,
+    lix-module,
+    flake-utils,
+    nixvim,
+    ...
+  }:
+    flake-utils.lib.eachDefaultSystem (
+      system: let
+        nixvim' = nixvim.legacyPackages.${system};
+        baseNixvimModule = {
+          # inherit nixpkgs;
+          module = {pkgs, ...}: {
+            imports = [
+              ./nvim
+            ];
+          };
+        };
+      in {
+        # would put the nixos configuiration here for NixOs System
 
-    nixpkgs.config.allowUnfree = true;
-    nixpkgs.overlays = [ inputs.nurpkgs.overlay ];
+        nixpkgs.config.allowUnfree = true;
+        nixpkgs.overlays = [inputs.nurpkgs.overlay];
 
+        # Nick's Vim configuration
+        packages.nvim = nixvim'.makeNixvimWithModule baseNixvimModule;
 
-    darwinConfigurations = {
-      "Nicholass-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        modules = [
-          lix-module.nixosModules.default
-          ./modules/darwin.nix
-          home-manager.darwinModules.home-manager {
-            home-manager = {
-              extraSpecialArgs = { inherit inputs; };
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.ngildenhuys = import ./modules/home.nix;
-            };
-            users.users.ngildenhuys.home = "/Users/ngildenhuys";
-          }
-        ];
-        specialArgs = { inherit inputs; };
-      };
-    };
-  };
+        darwinConfigurations = {
+          "Nicholass-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+            system = "aarch64-darwin";
+            modules = [
+              lix-module.nixosModules.default
+              ./modules/darwin.nix
+              home-manager.darwinModules.home-manager
+              {
+                home-manager = {
+                  extraSpecialArgs = {inherit inputs;};
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  users.ngildenhuys = import ./modules/home.nix;
+                };
+                users.users.ngildenhuys.home = "/Users/ngildenhuys";
+              }
+            ];
+            specialArgs = {inherit inputs;};
+          };
+        };
+      }
+    );
 }
