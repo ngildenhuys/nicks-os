@@ -1,6 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
-
-{
+{pkgs, ...}: {
   imports = [
     ./neovim.nix
     ./alacritty.nix
@@ -19,6 +17,7 @@
     # environment.
     # sessionVariables.EDITOR = "nvim"
     packages = with pkgs; [
+      my_nvim
       meson
       ripgrep
       fd
@@ -74,5 +73,3 @@
     ];
   };
 }
-
-

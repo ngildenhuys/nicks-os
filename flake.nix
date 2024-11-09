@@ -46,6 +46,7 @@
             ];
           };
         };
+        my_nvim = nixvim'.makeNixvimWithModule baseNixvimModule;
       in {
         # would put the nixos configuiration here for NixOs System
 
@@ -53,7 +54,7 @@
         nixpkgs.overlays = [inputs.nurpkgs.overlay];
 
         # Nick's Vim configuration
-        packages.nvim = nixvim'.makeNixvimWithModule baseNixvimModule;
+        packages.nvim = my_nvim;
 
         darwinConfigurations = {
           "Nicholass-MacBook-Pro" = nix-darwin.lib.darwinSystem {
