@@ -17,7 +17,6 @@
     # environment.
     # sessionVariables.EDITOR = "nvim"
     packages = with pkgs; [
-      my_nvim
       meson
       ripgrep
       fd

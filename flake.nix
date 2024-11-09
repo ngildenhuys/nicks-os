@@ -27,6 +27,7 @@
   };
 
   outputs = inputs @ {
+    self,
     nixpkgs,
     nix-darwin,
     home-manager,
@@ -46,7 +47,7 @@
             ];
           };
         };
-        my_nvim = nixvim'.makeNixvimWithModule baseNixvimModule;
+        nvim = nixvim'.makeNixvimWithModule baseNixvimModule;
       in {
         # would put the nixos configuiration here for NixOs System
 
@@ -54,12 +55,16 @@
         nixpkgs.overlays = [inputs.nurpkgs.overlay];
 
         # Nick's Vim configuration
-        packages.nvim = my_nvim;
+        packages.nvim = nvim;
 
-        darwinConfigurations = {
-          "Nicholass-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+        packages.darwinConfigurations = {
+          "Nicholass-MacBook-Pro" = nix-darwin.lib.darwinSystem rec {
             system = "aarch64-darwin";
             modules = [
+              {
+                environment.systemPackages = [self.packages.${system}.nvim];
+              }
+
               lix-module.nixosModules.default
               ./modules/darwin.nix
               home-manager.darwinModules.home-manager
