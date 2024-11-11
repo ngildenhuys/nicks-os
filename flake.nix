@@ -56,7 +56,7 @@
 
         # Nick's Vim configuration
         packages.nvim = nvim;
-        packages.default = nvim;
+        packages.default = self.packages.${system}.nvim;
 
         packages.darwinConfigurations = {
           "Nicholass-MacBook-Pro" = nix-darwin.lib.darwinSystem rec {
