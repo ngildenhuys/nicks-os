@@ -1,4 +1,8 @@
-{pkgs, programs, ...}: {
+{
+  pkgs,
+  programs,
+  ...
+}: {
   programs.zellij = {
     enable = true;
     enableFishIntegration = true;
@@ -9,4 +13,3 @@
     };
   };
 }
-

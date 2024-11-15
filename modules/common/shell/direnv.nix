@@ -1,4 +1,8 @@
-{pkgs, programs, ...}: {
+{
+  pkgs,
+  programs,
+  ...
+}: {
   programs = {
     direnv = {
       enable = true;

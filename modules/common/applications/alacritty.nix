@@ -1,5 +1,5 @@
-{pkgs, programs, ...}: {
-  programs.alacritty = {
+{pkgs, ...}: {
+  options.programs.alacritty = {
     enable = true;
     settings = {
       # font.normal.family = "MesloLGS Nerd Font Mono";

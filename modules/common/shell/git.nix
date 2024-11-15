@@ -3,13 +3,9 @@
   pkgs,
   lib,
   ...
-}:
-
-let
+}: let
   home-packages = config.home-manager.users.${config.user}.home.packages;
-in
-{
-
+in {
   options = {
     gitName = lib.mkOption {
       type = lib.types.str;
@@ -22,10 +18,8 @@ in
   };
 
   config = {
-
     home-manager.users.root.programs.git = {
       enable = true;
-      extraConfig.safe.directory = config.dotfilesPath;
     };
 
     home-manager.users.${config.user} = {
@@ -51,8 +45,8 @@ in
         gp = "git push";
         gl = "git log --graph --decorate --oneline -20";
         gll = "git log --graph --decorate --oneline";
-      	glg = "git log --pretty --all --graph --oneline";
-      	glrg = "git log --pretty --all --graph --raw";
+        glg = "git log --pretty --all --graph --oneline";
+        glrg = "git log --pretty --all --graph --raw";
         gco = "git checkout";
         gcom = ''git switch (git symbolic-ref refs/remotes/origin/HEAD | cut -d"/" -f4)'';
         gcob = "git switch -c";
@@ -69,4 +63,3 @@ in
     };
   };
 }
-

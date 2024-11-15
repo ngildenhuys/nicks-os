@@ -1,9 +1,11 @@
 # Home Modules
-These are modules that are managed by and passed to home-manager. So think shell environment, editors, 
+
+These are modules that are managed by and passed to home-manager. So think shell environment, editors,
 browsers, mail clients, etc...
 
 These modules should all have a template looking something similar to this:
-and the 
+and the
+
 ```nix
 { config, pkgs, lib, ... }: {
 

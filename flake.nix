@@ -49,8 +49,6 @@
         };
         nvim = nixvim'.makeNixvimWithModule baseNixvimModule;
       in {
-        # would put the nixos configuiration here for NixOs System
-
         nixpkgs.config.allowUnfree = true;
         nixpkgs.overlays = [inputs.nurpkgs.overlay];
 
@@ -58,30 +56,10 @@
         packages.nvim = nvim;
         packages.default = self.packages.${system}.nvim;
 
-    	nixosConfigurations = {
-    		hilbert = import ./hosts/hilbert {inherit inputs;};
-    	#   # charles = import ./hosts/charles{inherit inputs globals;
-
-    	#   # FIXME : replace with your hostname
-    	#   hilbert = nixpkgs.lib.nixosSystem {
-    	#     specialArgs = {inherit inputs outputs;};
-    	#     modules = [
-    	#       # > Our main nixos configuration file <
-    	#       ./hosts/hilbert.nix
-    	#       ./greetd.nix
-    	#       home-manager.nixosModules.home-manager
-    	#       {
-    	#         home-manager.useGlobalPkgs = true;
-    	#         home-manager.useUserPackages = true;
-
-    	#         # TODO replace ryan with your own username
-    	#         home-manager.users.ngildenhuys = import ./home-manager/home.nix;
-
-    	#         # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-    	#       }
-    	#     ];
-    	#   };
-    	};
+        packages.nixosConfigurations = {
+          hilbert = import ./hosts/hilbert {inherit inputs;};
+          # charles = import ./hosts/charles{inherit inputs globals;
+        };
 
         packages.darwinConfigurations = {
           "Nicholass-MacBook-Pro" = nix-darwin.lib.darwinSystem rec {
