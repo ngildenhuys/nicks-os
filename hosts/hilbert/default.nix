@@ -1,11 +1,18 @@
-{inputs, ...}:
+{
+  inputs,
+  myvim,
+  ...
+}:
 with inputs;
   nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
       home-manager.nixosModules.home-manager
-      ../../modules/common
+      {
+        environment.systemPackages = [myvim];
+      }
       ../../modules/nixos
+      ../../modules/common
       ./hardware.nix
       {
         # Operating system configuratoins

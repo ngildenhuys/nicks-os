@@ -6,8 +6,6 @@
 }: {
   imports = [
     ./applications
-    # ./editors
-    # ./programming
     ./shell
   ];
 
@@ -77,7 +75,6 @@
     # Basic common system packages for all devices
     environment.systemPackages = with pkgs; [
       git
-      neovim
       wget
       curl
     ];

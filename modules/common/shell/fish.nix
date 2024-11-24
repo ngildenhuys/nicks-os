@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  lib,
   ...
 }: {
   users.users.${config.user}.shell = pkgs.fish;
@@ -18,7 +17,7 @@
         ls = "${pkgs.eza}/bin/eza --group";
 
         # Use nvim over all vi alternates
-        vi = "nvim";
+        vi = "vim";
         vim = "nvim";
         vimdiff = "nvim -d";
       };
@@ -30,14 +29,6 @@
         # use eza instead of ls
         ll = "ls -la";
         l = "ls -la";
-
-        # git related alias
-        # gs = "git status";
-        # gcam = "git commit -am";
-        # gd = "git diff";
-        # glr = "git log --raw";
-        # glg = "git log --pretty --all --graph --oneline";
-        # glrg = "git log --pretty --all --graph --raw";
 
         # cargo aliases
         cb = "cargo build";

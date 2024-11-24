@@ -1,6 +1,6 @@
 {...}: {
   imports = [
     ./alacritty.nix
-    # ./firefox.nix
+    ./firefox.nix
   ];
 }

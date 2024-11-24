@@ -48,7 +48,8 @@
           };
         };
         nvim = nixvim'.makeNixvimWithModule baseNixvimModule;
-      in {
+        myvim = nvim;
+      in rec {
         nixpkgs.config.allowUnfree = true;
         nixpkgs.overlays = [inputs.nurpkgs.overlay];
 
@@ -57,7 +58,7 @@
         packages.default = self.packages.${system}.nvim;
 
         packages.nixosConfigurations = {
-          hilbert = import ./hosts/hilbert {inherit inputs;};
+          hilbert = import ./hosts/hilbert {inherit inputs myvim;};
           # charles = import ./hosts/charles{inherit inputs globals;
         };
 
