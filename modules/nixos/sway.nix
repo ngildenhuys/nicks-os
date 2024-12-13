@@ -1,7 +1,7 @@
 {config, ...}: {
   config = {
     # enable wayland sway window manager
-    home-manager.users.${config.user}.wayland.windowManager.sway = {
+    home-manager.users.${config.user}.wayland.windowManager.sway = rec {
       enable = true;
       config = {
         modifier = "Mod4";
@@ -14,13 +14,25 @@
         up = "k";
         right = "l";
 
-        menu = "rofi -show drun | swaymsg";
+        menu = "tofi-drun | xargs swaymsg exec --";
         # file = "rofi -show filebrowser | swaymsg";
         # power = "rofi -show powermenu | swaymsg";
         # browser = "firefox";
         # private-browser = "firefox --private-window";
         gaps.smartBorders = "on";
+        bars = [
+          {
+            command = "waybar";
+          }
+        ];
       };
+
+      extraConfig = ''
+        default_border pixel 4
+        bindsym ${config.modifier}+tab workspace next_on_output
+        bindsym ${config.modifier}+Shift+tab workspace prev_on_output
+      '';
+      # bindsym ${config.modifier}+space exec $menu
     };
   };
   #

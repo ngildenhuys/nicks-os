@@ -35,7 +35,7 @@ with inputs;
         # neovim.enable = true;
         # firefox.enable = true;
         # kitty.enable = true;
-        # discord.enable = true;
+        discord.enable = true;
         # obsidian.enable = true;
         # rust.enable = true;
 

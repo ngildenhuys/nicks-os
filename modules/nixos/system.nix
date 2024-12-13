@@ -4,25 +4,19 @@
   ...
 }: {
   config = {
+    networking.networkmanager.enable = true;
+
     users.users.${config.user} = {
       initialPassword = "";
       isNormalUser = true;
       extraGroups = [
         "wheel"
+        "networkmanager"
       ];
     };
 
     # enable for wayland
     security.polkit.enable = true;
-
-    # enable wayland sway window manager
-    home-manager.users.${config.user}.wayland.windowManager.sway = {
-      enable = true;
-      config = {
-        modifier = "Mod4";
-        terminal = "alacritty";
-      };
-    };
 
     # login greeter
     services.greetd = {
@@ -34,11 +28,5 @@
         };
       };
     };
-
-    # sway lock screen
-    # security.pam.services.swaylock = {};
-    # home-manager.users.${config.user}.programs.swaylock = {
-    #   enable = true;
-    # };
   };
 }

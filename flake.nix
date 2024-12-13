@@ -49,7 +49,7 @@
         };
         nvim = nixvim'.makeNixvimWithModule baseNixvimModule;
         myvim = nvim;
-      in rec {
+      in {
         nixpkgs.config.allowUnfree = true;
         nixpkgs.overlays = [inputs.nurpkgs.overlay];
 

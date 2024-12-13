@@ -15,17 +15,16 @@
       shellAliases = {
         # Use eza (exa) instead of ls for fancier output
         ls = "${pkgs.eza}/bin/eza --group";
-
-        # Use nvim over all vi alternates
-        vi = "vim";
-        vim = "nvim";
-        vimdiff = "nvim -d";
       };
       functions = {
       };
 
       loginShellInit = "";
       shellAbbrs = {
+        # Use nvim over all vi alternates
+        vi = "vim";
+        vim = "nvim";
+        vimdiff = "nvim -d";
         # use eza instead of ls
         ll = "ls -la";
         l = "ls -la";
