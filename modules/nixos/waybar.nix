@@ -8,7 +8,11 @@
       settings = {
         mainBar = {
           modules-left = ["sway/workspaces" "sway/window" "sway/mode"];
-          modules-right = ["pulseaudio" "backlight" "network" "battery" "clock"];
+          modules-right = ["bluetooth" "pulseaudio" "backlight" "network" "battery" "clock"];
+          bluetooth = {
+            # format-icons = ["󰂲" "󰂯"];
+            on-click = "blueman-manager";
+          };
           clock = {
             tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
             format = "{:%b %d(%H:%M) 󰃰}";

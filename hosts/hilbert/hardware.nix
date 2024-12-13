@@ -56,6 +56,18 @@
     # networking.interfaces.wlp166s0.useDHCP = lib.mkDefault true;
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-    hardware.cpu.intel.updateMicrocode = pkgs.lib.mkDefault config.hardware.enableRedistributableFirmware;
+    hardware = {
+      cpu.intel.updateMicrocode = pkgs.lib.mkDefault config.hardware.enableRedistributableFirmware;
+      pulseaudio.enable = true;
+      bluetooth = {
+        enable = true;
+        settings = {
+          General = {
+            Enable = "Source,Sink,Media,Socket";
+            Experimental = true;
+          };
+        };
+      };
+    };
   };
 }

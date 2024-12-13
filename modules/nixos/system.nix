@@ -15,8 +15,19 @@
       ];
     };
 
+    # some system packages
+    home-manager.users.${config.user}.home.packages = with pkgs; [
+      # pulse audio volume control used in waybar
+      pavucontrol
+      # bluetooth applet
+      blueman
+    ];
+
     # enable for wayland
     security.polkit.enable = true;
+
+    # enable bluetooth
+    services.blueman.enable = true;
 
     # login greeter
     services.greetd = {

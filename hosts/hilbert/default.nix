@@ -38,8 +38,6 @@ with inputs;
         discord.enable = true;
         # obsidian.enable = true;
         # rust.enable = true;
-
-        # Services enables
       }
     ];
   }

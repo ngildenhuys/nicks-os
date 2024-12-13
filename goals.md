@@ -6,7 +6,7 @@
 - [x] setup nvim
 - [x] setup shell fish
 - [] setup login screen (in progress, should prompt )
-- [] setup bluetooth
+- [x] setup bluetooth
 - [] setup finger print sensor
 - [] maybe get sleeping to work?? and connecting to monitor while closed
 - [x] nerd fonts working
