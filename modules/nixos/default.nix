@@ -8,5 +8,6 @@
     ./notifications.nix
     ./utilities.nix
     ./kanshi.nix
+    ./swayidle.nix
   ];
 }

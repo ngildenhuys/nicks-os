@@ -1,15 +1,18 @@
 # Goals for today
 
 - [x] switch over to sway
-- [] setup window managment the way we want to, so mouse enabled, macros whichever way (in progress, I have enough to get around)
-- [] get alt tab working
+- [x] setup window managment the way we want to, so mouse enabled, macros whichever way (in progress, I have enough to get around)
+- [x] get alt tab working (switches between workspace, will take more work to get it like windows)
 - [x] setup nvim
 - [x] setup shell fish
-- [] setup login screen (in progress, should prompt )
+- [x] setup login screen (in progress, should prompt )
 - [x] setup bluetooth
-- [] setup finger print sensor
-- [] maybe get sleeping to work?? and connecting to monitor while closed
+- [x] maybe get sleeping to work?? and connecting to monitor while closed
 - [x] nerd fonts working
+- [] get sound working
+- [] get display/backlight brightness working
+- [] keyboard keys all working
+- [] setup finger print sensor
 
 ## Applications to setup
 
@@ -29,7 +32,7 @@
 - [] itunes/libimobiledevices
 - [x] wifi utility (secrets are being saved now)
 - [x] notifications that sautomatically disapear after some time
-- [] unify the keybinds across linux and mac at least...windows we may have to give up on :(
+- [] unify the keybinds across linux and mac at least
 
 ## Window setup scripts
 
@@ -45,7 +48,7 @@
 
 ## Tune of this project
 
-screw declaritive configs script the setup of everything in fish
+- [x] screw declaritive configs script the setup of everything in fish
 
 ## Longger term ideas
 

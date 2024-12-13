@@ -7,6 +7,7 @@ with inputs;
   nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
+      nixos-hardware.nixosModules.framework-12th-gen-intel
       home-manager.nixosModules.home-manager
       {
         environment.systemPackages = [myvim];

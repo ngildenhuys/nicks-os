@@ -9,7 +9,6 @@
         outputs = [
           {
             criteria = "eDP-1";
-            scale = 0.75;
             status = "enable";
           }
         ];
@@ -19,7 +18,7 @@
         outputs = [
           {
             criteria = "Dell Inc. DELL S3422DWG JP05KK3";
-            scale = 1.25;
+            scale = 1.5;
           }
           {
             criteria = "eDP-1";

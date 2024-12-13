@@ -36,7 +36,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --user-menu --time --greeting "Login to Nick's OS" --cmd sway'';
+          command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --user-menu --asterisks --time --greeting "Login to Nick's OS" --cmd sway'';
           user = "${config.user}";
         };
       };

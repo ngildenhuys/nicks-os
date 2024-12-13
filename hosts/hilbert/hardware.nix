@@ -44,6 +44,7 @@
     fileSystems."/boot" = {
       device = "/dev/disk/by-uuid/424E-FC68";
       fsType = "vfat";
+      options = ["fmask=0022" "dmask=0022"];
     };
 
     swapDevices = [];
@@ -54,6 +55,9 @@
     # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
     networking.useDHCP = pkgs.lib.mkDefault true;
     # networking.interfaces.wlp166s0.useDHCP = lib.mkDefault true;
+
+    # update firmware
+    services.fwupd.enable = true;
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     hardware = {
