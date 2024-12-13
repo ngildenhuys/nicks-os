@@ -10,40 +10,43 @@
   ];
   config = {
     home-manager.users.${config.user} = {
-      home.packages = with pkgs; [
-        htop
-        ripgrep
-        fd
-        sd
+      home = {
+        sessionVariables.EDITOR = "nvim";
+        packages = with pkgs; [
+          htop
+          ripgrep
+          fd
+          sd
 
-        bat
-        tree
-        curl
-        less
-        just
-        alacritty
-        coreutils
-        rustup
+          bat
+          tree
+          curl
+          less
+          just
+          alacritty
+          coreutils
+          rustup
 
-        eza
-        poetry
-        zellij
-        pre-commit
-        asciidoctor
+          eza
+          poetry
+          zellij
+          pre-commit
+          asciidoctor
 
-        gnuplot
+          gnuplot
 
-        jq
-        fastfetch
-        nvd
-        convco
+          jq
+          fastfetch
+          nvd
+          convco
 
-        glow
-        mosh
-        lazygit
+          glow
+          mosh
+          lazygit
 
-        git-absorb
-      ];
+          git-absorb
+        ];
+      };
     };
   };
 }
