@@ -29,12 +29,14 @@
     # enable bluetooth
     services.blueman.enable = true;
 
+    time.timeZone = "America/Los_Angeles";
+
     # login greeter
     services.greetd = {
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+          command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --user-menu --time --greeting "Login to Nick's OS" --cmd sway'';
           user = "${config.user}";
         };
       };

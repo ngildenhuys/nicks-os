@@ -7,5 +7,6 @@
     ./waybar.nix
     ./notifications.nix
     ./utilities.nix
+    ./kanshi.nix
   ];
 }
