@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   config = {
     # enable wayland sway window manager
     home-manager.users.${config.user}.wayland.windowManager.sway = rec {
@@ -14,7 +18,13 @@
         up = "k";
         right = "l";
 
-        menu = "tofi-drun | xargs swaymsg exec --";
+        menu = let
+          font-arg = "--font ${pkgs.jetbrains-mono}/share/fonts/truetype/JetBrainsMono-Regular.ttf";
+        in
+          # "tofi-run ${font-arg} | xargs swaymsg exec --";
+          "tofi-run ${font-arg} | xargs swaymsg exec --";
+        # "tofi-drun --drun-launch=true ${font-arg}";
+
         # file = "rofi -show filebrowser | swaymsg";
         # power = "rofi -show powermenu | swaymsg";
         # browser = "firefox";
@@ -29,6 +39,7 @@
 
       extraConfig = ''
         default_border pixel 4
+        bindsym ${config.modifier}+Shift+d "tofi-drun --font ${pkgs.jetbrains-mono}/share/fonts/truetype/JetBrainsMono-Regular.ttf | xargs swaymsg exec --"
         bindsym ${config.modifier}+tab workspace next_on_output
         bindsym ${config.modifier}+Shift+tab workspace prev_on_output
       '';

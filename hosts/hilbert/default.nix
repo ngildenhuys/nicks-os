@@ -15,22 +15,14 @@ with inputs;
       ../../modules/nixos
       ../../modules/common
       ./hardware.nix
-      {
+      rec {
         # Operating system configuratoins
+        fullName = "Nicholas Gildenhuys";
         user = "ngildenhuys";
-        gitName = "Nicholas Gildenhuys";
-        gitEmail = "nicholas@gildenhuys.net";
+        gitName = fullName;
+        gitEmail = "${mail.user}.@${mail.server}";
 
         gui.enable = true;
-
-        # theme = {
-        #   colors = (import ../../colorscheme/gruvbox-dark).dark;
-        #   dark = true;
-        # };
-
-        # # wallpaper stuff
-        # wallpaper = "${inputs.wallpapers}/gruvbox/road.jpg";
-        # gtk.theme.name = inputs.nixpkgs.lib.mkDefault "Adwaita-dark";
 
         # Programs and services
         # neovim.enable = true;
@@ -39,6 +31,14 @@ with inputs;
         discord.enable = true;
         # obsidian.enable = true;
         # rust.enable = true;
+        mail = {
+          enable = false;
+          user = "nicholas";
+          server = "gildenhuys.net";
+          imapHost = "outlook.office365.com";
+          smtpHost = "smtp.office365.com";
+        };
+        gaming.steam.enable = true;
       }
     ];
   }

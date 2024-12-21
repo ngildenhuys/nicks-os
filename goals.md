@@ -13,6 +13,10 @@
 - [] get display/backlight brightness working
 - [] keyboard keys all working
 - [] setup finger print sensor
+- [] mangohub for gamming possibly
+- [] gamemode for launching steam games for better performance
+- [x] memory usage in waybar
+- [x] cpu usage in waybar
 
 ## Applications to setup
 
@@ -36,10 +40,8 @@
 
 ## Window setup scripts
 
-- [] github operations with todos and email
-- [] finances wells fargo (bank + roth), amex, ynab (wip, working start creating shell scripts)
 - [] travel planning firefox (calendar + google flights)
-- [] basic gamming setup
+- [x] basic gamming setup
 - [] github local projects coding setup
 - [] somehow to transfer documents from scan
 - [] phone backup automation
@@ -54,5 +56,27 @@
 
 - [] maybe getting git forkflows for traking pro-dev/personal docs
 - [] keeping backup of machine/git docs/onedrive on remote server
-- [] multi monitor window setup
+- [x] multi monitor window setup
 - [] declarative secrets management
+
+## Accounting
+
+- [] bean-count
+- [] reporting
+- [] splitwise reporting
+- [] venmo reporting
+- [] wells fargo reporting
+- [] wells fargo roth/investments
+- [] charles schwab account for active investments
+- [] chales schwab api reporting to beancount/db
+
+## task tracking
+
+- [] automation for github issues maybe??
+- [] or find the unicorn of todo tracking apps
+
+## Metrics
+
+- [] graphana
+- [] influxdb or postres for timescale database
+- [] accounting into database

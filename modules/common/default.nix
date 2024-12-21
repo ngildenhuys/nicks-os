@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./applications
+    ./mail
     ./shell
   ];
 
@@ -72,6 +73,7 @@
   config = let
     stateVersion = "23.05";
   in {
+    nix.settings.experimental-features = ["nix-command" "flakes"];
     # Basic common system packages for all devices
     environment.systemPackages = with pkgs; [
       git

@@ -8,13 +8,16 @@
       home.packages = [
         (pkgs.writeShellApplication {
           name = "launch-finances";
-          runtimeInputs = [pkgs.sway-new-workspace];
+          runtimeInputs = [pkgs.firefox];
           text = ''
-            sway-new-workspace open
             firefox --new-window https://www.wellsfargo.com/
           '';
         })
       ];
+      xdg.desktopEntries.finances = {
+        name = "finances";
+        exec = "launch-finances";
+      };
     };
   };
 }
