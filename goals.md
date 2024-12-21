@@ -59,6 +59,12 @@
 - [x] multi monitor window setup
 - [] declarative secrets management
 
+## Sops blogs
+
+[explainer and how to](https://unmovedcentre.com/posts/secrets-management/)
+[private secrets repo](https://0xda.de/blog/2024/07/framework-and-nixos-sops-nix-secrets-management/)
+[sops-nix](https://github.com/Mic92/sops-nix)
+
 ## Accounting
 
 - [] bean-count
@@ -69,6 +75,9 @@
 - [] wells fargo roth/investments
 - [] charles schwab account for active investments
 - [] chales schwab api reporting to beancount/db
+- [plaintextaccounting](https://plaintextaccounting.org/)
+- [visualize accounting](https://memo.barrucadu.co.uk/hledger-influxdb-grafana.html#fnref4)
+- [rust tools for beancount](https://github.com/twilco/beancount)
 
 ## task tracking
 
